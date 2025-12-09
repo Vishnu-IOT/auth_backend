@@ -36,7 +36,7 @@ async function loginUser(req, res) {
             twiliootp(datalog.ph_no);
             return res.status(200).send({ success: true, Token: token });
         } else {
-            return res.status(402).send({ success: false });
+            return res.status(402).send({ success: "falses" });
         }
     });
 }
@@ -69,4 +69,5 @@ async function getValues(req, res) {
 }
 
 module.exports = { registerUser, loginUser, getValues, verifycred };
+
 
