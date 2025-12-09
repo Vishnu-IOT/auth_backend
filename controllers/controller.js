@@ -9,7 +9,7 @@ async function registerUser(req, res) {
     await dupilcateEntry(fdata, (err, result) => {
         if (err) {
             console.log("not working");
-            return res.status(500).send("Search error");
+            return res.status(400).send("Search error");
         }
         else if (result.length > 0) {
             console.log(result.length);
@@ -69,5 +69,6 @@ async function getValues(req, res) {
 }
 
 module.exports = { registerUser, loginUser, getValues, verifycred };
+
 
 
