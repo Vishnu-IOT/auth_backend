@@ -2,11 +2,11 @@ const db = require("mysql2")
 require("dotenv").config();
 
 const crt = db.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASS,
-    database: process.env.DB,
-    port: process.env.PORT
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQL_ROOT_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    port: process.env.MYSQLPORT
 });
 
 crt.connect(
@@ -38,5 +38,6 @@ function valuesdb(borns, callback) {
 function passupdate(pass, email, callback) {
     crt.query("UPDATE demouser SET password = ? WHERE email=?", [pass.password,email],callback)
 }
+
 
 module.exports = { createUser, dupilcateEntry, checkUser, valuesdb, passupdate };
