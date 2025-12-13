@@ -5,8 +5,8 @@ const cors = require("cors");
 require("dotenv").config();
 
 
-app.use(cors("https://authbackend-production-b892.up.railway.app"));
-// app.use(cors());
+// app.use(cors("https://authbackend-production-b892.up.railway.app"));
+app.use(cors());
 app.use(express.json());
 app.use("/admin",startpoint);
 console.log("passed index")
@@ -20,5 +20,6 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 
 });
+
 
 
