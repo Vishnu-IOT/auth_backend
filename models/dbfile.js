@@ -15,7 +15,7 @@ crt.connect(
     });
 
 async function createUser(data) {
-    const { name, email, username, password } = data;
+    const { id, name, email, username, password } = data;
     await crt.query(`INSERT INTO demouser (id,name,email,username,password) VALUES
          (?,?,?,?,?)`, [id, name, email, username, password],
         (err) => { if (err) { throw err; } console.log("table update") });
@@ -41,5 +41,6 @@ function passupdate(pass, email, callback) {
 
 
 module.exports = { createUser, dupilcateEntry, checkUser, valuesdb, passupdate };
+
 
 
