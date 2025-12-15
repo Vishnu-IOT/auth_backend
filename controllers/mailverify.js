@@ -5,8 +5,8 @@ const jwt = require("jsonwebtoken");
 
 const transporter = nodemailer.createTransport({
    host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
+   port: 587,
+   secure: false,
     auth: {
         user: "vishnubharani153@gmail.com",
         pass: process.env.APP_PASSWORD,
@@ -59,4 +59,5 @@ function updatepass(req, res) {
 
 
 module.exports = { sendemail, updatepass };
+
 
