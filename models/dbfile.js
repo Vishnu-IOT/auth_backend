@@ -14,18 +14,18 @@ crt.connect(
         if (err) { throw err; } console.log("connected");
     });
 
-async function createUser(data) {
+function createUser(data) {
     const { id, name, email, username, password } = data;
-    await crt.query(`INSERT INTO demouser (id,name,email,username,password) VALUES
+    crt.query(`INSERT INTO demouser (id,name,email,username,password) VALUES
          (?,?,?,?,?)`, [data.id, data.name, data.email, data.username, data.password],
         (err) => { if (err) { throw err; } console.log("table update") });
 }
 
-async function dupilcateEntry(emailcheck, callback) {
-    await crt.query("select * from demouser where email=?", [emailcheck.email], callback);
+function dupilcateEntry(emailcheck, callback) {
+    crt.query("select * from demouser where email=?", [emailcheck.email], callback);
 }
 
-async function checkUser(logcheck, callback) {
+function checkUser(logcheck, callback) {
     const sql = "SELECT * FROM demouser WHERE username=? AND password=?";
 
     crt.query(sql, [logcheck.username, logcheck.password], callback);
@@ -41,6 +41,7 @@ function passupdate(pass, email, callback) {
 
 
 module.exports = { createUser, dupilcateEntry, checkUser, valuesdb, passupdate };
+
 
 
 
