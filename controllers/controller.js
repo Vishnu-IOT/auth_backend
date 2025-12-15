@@ -6,7 +6,7 @@ async function registerUser(req, res) {
     const fdata = req.body;
     console.log(fdata);
 
-    await dupilcateEntry(fdata, (err, result) => {
+    dupilcateEntry(fdata, (err, result) => {
         if (err) {
             console.log("not working");
             return res.status(400).send("Search error");
@@ -15,8 +15,10 @@ async function registerUser(req, res) {
             console.log(result.length);
             return res.status(400).send("Email Already Exists");
         }
+        else{
         createUser(fdata);
         return res.status(200).send({ success: "User Info Saved Successfully", bool: true });
+        }
     });
 
     console.log("Passed Controller");
@@ -69,6 +71,7 @@ async function getValues(req, res) {
 }
 
 module.exports = { registerUser, loginUser, getValues, verifycred };
+
 
 
 
