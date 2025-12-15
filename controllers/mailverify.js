@@ -4,7 +4,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
 const transporter = nodemailer.createTransport({
-   host: "smtp.gmail.com",
+   host: "smtp.zoho.com",
    port: 587,
    secure: false,
     auth: {
@@ -59,5 +59,6 @@ function updatepass(req, res) {
 
 
 module.exports = { sendemail, updatepass };
+
 
 
