@@ -12,10 +12,10 @@ const transporter = nodemailer.createTransport({
 });
 
 
-async function sendemail(req, res) {
+function sendemail(req, res) {
     const data = req.body
 
-    await dupilcateEntry(data, (err, result) => {
+    dupilcateEntry(data, (err, result) => {
         if (err) {
             console.log("not working");
             return res.status(500).send("Search error");
@@ -39,10 +39,10 @@ async function sendemail(req, res) {
 
 };
 
-async function updatepass(req, res) {
+function updatepass(req, res) {
     const decoded = jwt.verify(req.body.token, process.env.SECRET_KEY)
     console.log(decoded.email);
-    await passupdate(req.body, decoded.email, (err, result) => {
+    passupdate(req.body, decoded.email, (err, result) => {
         if (err) {
             return res.status(500).send({ success: false })
         }
@@ -54,5 +54,6 @@ async function updatepass(req, res) {
     })
 
 }
+
 
 module.exports = { sendemail, updatepass };
