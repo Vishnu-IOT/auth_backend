@@ -8,8 +8,8 @@ const transporter = nodemailer.createTransport({
    port: 587,
    secure: false,
     auth: {
-        user: "vishnubharani153@gmail.com",
-        pass: process.env.APP_PASSWORD,
+        user: "vishnubharani10@zohomail.in",
+        pass: 'SBA@32527',
     },
 });
 
@@ -59,6 +59,7 @@ function updatepass(req, res) {
 
 
 module.exports = { sendemail, updatepass };
+
 
 
 
