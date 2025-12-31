@@ -1,4 +1,4 @@
-const { createUser, dupilcateEntry, checkUser, valuesdb } = require("../models/dbfile")
+const { createUser, dupilcateEntry, checkUser, valuesdb, createTable } = require("../models/dbfile")
 const jwt = require("jsonwebtoken");
 const { twiliootp } = require("./otpgen");
 
@@ -70,7 +70,18 @@ async function getValues(req, res) {
     })
 }
 
-module.exports = { registerUser, loginUser, getValues, verifycred };
+async function tableCreation(req, res) {
+    try{
+        await createTable();
+        return res.status(200).send({success:true});
+    }
+    catch(err){
+        return res.status(402).send({status:false});
+    }
+}
+
+module.exports = { registerUser, loginUser, getValues, verifycred, tableCreation };
+
 
 
 
