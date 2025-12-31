@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { registerUser, loginUser, getValues, verifycred } = require("../controllers/controller")
+const { registerUser, loginUser, getValues, verifycred, tableCreation } = require("../controllers/controller")
 const errorhandle = require("../controllers/files");
 const { otpverify } = require("../controllers/otpgen");
 const { sendemail, updatepass } = require("../controllers/mailverify");
@@ -20,3 +20,4 @@ console.log("passed login");
 
 
 module.exports = router;
+
