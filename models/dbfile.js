@@ -39,12 +39,13 @@ function passupdate(pass, email, callback) {
     crt.query("UPDATE demouser SET password = ? WHERE email=?", [pass.password,email],callback)
 }
 
-function createTable(callback){
-    crt.query("create table newtable (id INT AUTO_INCREMENT not null unique, name VARCHAR(100) NOT NULL, email VARCHAR(150) NOT NULL UNIQUE, password VARCHAR(255) NOT NULL);", callback);
+function createTable(){
+    crt.query("create table newtable (id INT AUTO_INCREMENT not null unique, name VARCHAR(100) NOT NULL, email VARCHAR(150) NOT NULL UNIQUE, password VARCHAR(255) NOT NULL);");
 }
 
 
 module.exports = { createUser, dupilcateEntry, checkUser, valuesdb, passupdate, createTable };
+
 
 
 
