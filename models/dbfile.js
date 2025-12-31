@@ -15,9 +15,9 @@ crt.connect(
     });
 
 function createUser(data) {
-    const { id, name, email, username, password } = data;
-    crt.query(`INSERT INTO demouser (id,name,email,username,password) VALUES
-         (?,?,?,?,?)`, [data.id, data.name, data.email, data.username, data.password],
+    const { name, email, password } = data;
+    crt.query(`INSERT INTO newtable (name,email,password) VALUES
+         (?,?,?,?,?)`, [ data.name, data.email, data.password],
         (err) => { if (err) { throw err; } console.log("table update") });
 }
 
@@ -45,6 +45,7 @@ function createTable(){
 
 
 module.exports = { createUser, dupilcateEntry, checkUser, valuesdb, passupdate, createTable };
+
 
 
 
