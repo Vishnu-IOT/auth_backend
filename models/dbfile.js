@@ -16,13 +16,13 @@ crt.connect(
 
 function createUser(data) {
     const { name, email, password } = data;
-    crt.query(`INSERT INTO newtable (name,email,password) VALUES
-         (?,?,?,?,?)`, [ data.name, data.email, data.password],
+    crt.query('INSERT INTO newtable (name,email,password) VALUES (?,?,?)', 
+              [ data.name, data.email, data.password],
         (err) => { if (err) { throw err; } console.log("table update") });
 }
 
 function dupilcateEntry(emailcheck, callback) {
-    crt.query("select * from demouser where email=?", [emailcheck.email], callback);
+    crt.query("select * from newtable where email=?", [emailcheck.email], callback);
 }
 
 function checkUser(logcheck, callback) {
@@ -45,6 +45,7 @@ function createTable(){
 
 
 module.exports = { createUser, dupilcateEntry, checkUser, valuesdb, passupdate, createTable };
+
 
 
 
